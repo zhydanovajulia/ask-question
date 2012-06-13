@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AskQuestion</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% flash.each do |name, msg| %>
+  	<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+    	<a class="close" data-dismiss="alert">&#215;</a>
+    	<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  	</div>
+	<% end %>
+  <div class="navbar navbar-fixed-top">
+  	<div class="navbar-inner">
+    	<div class="container">
+    		<%= render "layouts/navigation" %>
+    	</div>
+		</div>
+	</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <%= yield %>
+    </div>
+    <div class="span3">
+      Note: The RailsApps examples are generated with application templates created by the Rails Apps Composer Gem. For that reason, groups such as :development or :test are specified inline. You can reformat the Gemfiles to organize groups in an eye-pleasing block style (as presented in the Gemfiles shown above). The functionality is the same.
+    </div>
+  </div>
+</div>
+</body>
+</html>
