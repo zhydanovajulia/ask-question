@@ -117,6 +117,9 @@ GEM
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
+    pickle (0.4.10)
+      cucumber (>= 0.8)
+      rake
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -209,6 +212,7 @@ DEPENDENCIES
   mysql2
   omniauth
   omniauth-facebook
+  pickle
   rails (= 3.2.3)
   rspec
   rspec-rails
