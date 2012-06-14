@@ -199,6 +199,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
+  cucumber
   cucumber-rails
   database_cleaner
   devise
@@ -209,6 +210,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   rails (= 3.2.3)
+  rspec
   rspec-rails
   sass-rails (~> 3.2.3)
   twitter-bootstrap-rails

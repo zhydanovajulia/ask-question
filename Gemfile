@@ -25,7 +25,9 @@ end
 
 group :test do
 	gem 'rspec-rails'
+  gem 'rspec'
 	gem 'cucumber-rails'
+  gem 'cucumber'
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'factory_girl'
