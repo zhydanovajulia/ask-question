@@ -1,11 +1,11 @@
 AskQuestion::Application.routes.draw do
 
+  match '/auth/:service/callback' => 'services#create' 
   devise_for :users
 
   root :to => 'questions#index'
-
-  match '/auth/facebook/callback' => 'services#create' 
-  resources :services, :only => [:index, :create]
+  
+  resources :services, :only => [:index, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
