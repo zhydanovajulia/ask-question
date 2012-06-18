@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614211750) do
+ActiveRecord::Schema.define(:version => 20120614213128) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "author"
+    t.string   "body"
+    t.integer  "rate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "questions", :force => true do |t|
     t.integer  "author"
     t.string   "subject"
+    t.string   "description"
     t.integer  "rate"
     t.integer  "answers_count"
     t.integer  "wath_count"
