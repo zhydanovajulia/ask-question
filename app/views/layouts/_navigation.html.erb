@@ -1,5 +1,6 @@
 <ul class="nav">
-  <li class="active"><a href="#">Home</a></li>
+  <li class="active"><%= link_to "Questions", questions_path %></li>
+  <li class="active"><%= link_to "Ask question", new_question_path %></li>
 </ul>
 <ul class="nav pull-right">	
 	<li><%= logged_in_as %></li>

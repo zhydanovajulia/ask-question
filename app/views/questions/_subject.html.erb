@@ -1,0 +1,17 @@
+<div class="subject">
+	<%= link_to question.subject, question_path(question), :class => 'question-link' %>
+	<div class="question-info">
+		<div class="answers-count">
+			<%= pluralize(question.answers_count, 'answer') %>
+		</div>
+		<div class="user-info">
+			<div class="author">
+				<%= question.author.name %>
+			</div>
+			<div class="created-at">
+				asked <%= question.created_at %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>

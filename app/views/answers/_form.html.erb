@@ -1,0 +1,6 @@
+<%= form_for [question, @answer] do |f| %>
+  <%= label_tag question.subject %>
+  <%= f.label :body, 'Answer' %>
+  <%= f.text_field :body %>
+  <%= f.submit %>
+<% end %>

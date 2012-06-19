@@ -1,0 +1,10 @@
+<div class="subject">
+	<%= question.subject %>
+</div>
+<div class="description">
+	<%= question.description %>
+</div>
+<div class="answers">
+	<%= render 'answers/answers', :answers => question.answers, :question => question %>
+</div>
+<%= link_to "Answer", new_question_answer_path(question) %>

@@ -1,3 +1,47 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.subject{
+	width: 30em;
+	height: 3em;
+	padding: 3px;
+	margin-top: 10px;
+	font-size: 1.7em;
+	font-family: 'Times New Roman';
+	border-bottom: 1px dotted #999;
+
+	a{
+	  &:hover{
+        color: #000;
+        text-decoration: none;
+        background: #dcdcdc;
+      }
+	}
+
+	.question-info{
+		padding-top: 13px;
+		.user-info{
+			display: block;
+			float: right;
+			font-size: 0.7em;
+			.author{
+				color: dimGray;
+				font-weight: bold;
+			}
+			.created-at{
+				color: silver;
+			}
+		}
+		.answers-count{
+			float: left;
+			font-size: 0.7em;
+			background-color: #CDC8B1;
+			height: 2em;
+			padding-left: 7px;
+			padding-right: 7px;
+		}
+	}
+}
+.questions{
+	margin-left: 7em;
+}
