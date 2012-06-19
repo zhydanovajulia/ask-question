@@ -6,7 +6,9 @@ AskQuestion::Application.routes.draw do
   root :to => 'questions#index'
   
   resources :services, :only => [:index, :create, :destroy]
-
+  resources :questions do
+    resources :answers
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
