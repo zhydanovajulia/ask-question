@@ -1,0 +1,9 @@
+<div class="vote-up" data-vote-up="">
+	<%= link_to 'vote up', answer_ratings_path(answer), :remote => true, :method => :post, :class => 'vote-up' %>
+</div>
+<div class="vote">
+	<%= answer.average_rating_round %>
+</div>
+<div class="vote-down" data-vote-down=""> 
+  <%= link_to 'vote down', answer_ratings_path(answer), :remote => true, :method => :delete, :class => 'vote-down' %>
+</div>

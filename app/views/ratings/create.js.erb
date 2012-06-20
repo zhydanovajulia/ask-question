@@ -1,2 +1,7 @@
-	$('.flash').html("<%=j render 'layouts/flash_messages', :flash => flash %>");
-	$('.vote').text("<%= @model.ratings_count %>");	
+$('.flash').html("<%=j render 'layouts/flash_messages', :flash => flash %>");
+<% if @model.class.to_s == "Question" %>
+	$('.subject .vote').text("<%= @model.ratings_count %>");	
+<% elsif @model.class.to_s == "Answer" %>
+	$('.<%= dom_id(@model) %> .vote').text("<%= @model.ratings_count %>");	
+<% end %>
+	

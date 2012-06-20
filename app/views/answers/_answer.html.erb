@@ -1,4 +1,5 @@
-<div class="answer">
+<div class="<%= dom_id(answer) %>">
+	<%= render 'answers/rates', :answer => answer %>
 	<%= answer.body %>
 </div>
 <%= link_to "Edit", edit_question_answer_path(question, answer) if answer.user == current_user %>

@@ -1,5 +1,5 @@
-<%= render 'rates', :question => question %>
 <div class="subject">
+	<%= render 'questions/rates', :question => question %>
 	<%= question.subject %>
 </div>
 <div class="description">
@@ -8,4 +8,6 @@
 <div class="answers">
 	<%= render 'answers/answers', :answers => question.answers, :question => question %>
 </div>
-<%= link_to "Answer", new_question_answer_path(question) %>
+<div class="new-answer">
+  <%= render 'answers/form', :question => question, :answer => Answer.new %>
+</div>
