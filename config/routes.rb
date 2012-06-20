@@ -13,6 +13,7 @@ AskQuestion::Application.routes.draw do
 
   resources :answers do
     resource :ratings
+    resources :comments
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
