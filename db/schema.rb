@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614213128) do
+ActiveRecord::Schema.define(:version => 20120620174332) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(:version => 20120614213128) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rateable_id",   :null => false
+    t.string   "rateable_type", :null => false
+    t.integer  "rater_id",      :null => false
+    t.string   "rater_type",    :null => false
+    t.integer  "score",         :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "ratings", ["rateable_id", "rateable_type"], :name => "fk_rateables"
+  add_index "ratings", ["rater_id", "rater_type"], :name => "fk_raters"
 
   create_table "services", :force => true do |t|
     t.integer  "user_id"

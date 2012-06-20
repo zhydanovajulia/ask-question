@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_rater
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,5 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :services, :dependent => :destroy
   has_many :questions, :dependent => :destroy
+
 
 end
