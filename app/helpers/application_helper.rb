@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def j(*args)
+    escape_javascript(*args)
+  end
+
 	def logged_in_as
 		if user_signed_in?
       link_to("Sign out", main_app.destroy_user_session_path, :title => "#{current_user.email} logout", :method => :delete)
