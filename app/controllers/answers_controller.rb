@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :find_question, :only => [:create, :update]
+	before_filter :find_question, :only => [:create, :update, :edit]
 	before_filter :find_answer, :only => [:edit, :update]
 	before_filter :author_require, :only => [:edit]
 
@@ -13,11 +13,17 @@ class AnswersController < ApplicationController
 		@question.update_attributes(:answers_count => @question.answers.count + 1)
 		@answer = @question.answers.build params[:answer].merge!(:user_id => current_user.id)
 		if @answer.save
-			flash[:notice] = "Your answer added successfully"
-			redirect_to question_path params[:question_id]
+			respond_to do |format|
+        		format.js { render :show }
+      		end
+			# flash.now[:notice] = "Your answer added successfully"
+			# redirect_to question_path params[:question_id]
 		else
-			flash[:alert] = "The answer wasn't created"
-			render :new
+			respond_to do |format|
+        		format.js { render :new }
+      		end
+			# flash.now[:alert] = "The answer wasn't created"
+			# render :new
 		end
 	end
 
