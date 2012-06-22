@@ -8,8 +8,14 @@
 	margin-top: 10px;
 	font-size: 1.7em;
 	font-family: 'Times New Roman';
-	border-bottom: 1px dotted #999;
-
+	border-bottom: 1px solid #999;
+	display: inline-table;
+	
+	.edit a{
+		float: right;
+		font-size: 0.7em;
+		margin-top: 30px;
+	}
 	a{
 	  &:hover{
         color: #000;
@@ -18,8 +24,28 @@
       }
 	}
 
+	.question-data{
+		margin-right: 10px;
+		background-color: #CCC;
+		float: left;
+		font-size: 0.7em;
+		width: 4em;
+		padding-left: 7px;
+		padding-right: 7px;
+		text-align: center;
+		.answers_count{
+			background-color: #CDC951;
+		}
+		.rate{
+			height: 2em;
+		}
+
+	}
+
 	.question-info{
 		padding-top: 13px;
+		width: 3em;
+		display: inline;
 		.user-info{
 			display: block;
 			float: right;
@@ -32,16 +58,14 @@
 				color: silver;
 			}
 		}
-		.answers-count{
-			float: left;
-			font-size: 0.7em;
-			background-color: #CDC8B1;
-			height: 2em;
-			padding-left: 7px;
-			padding-right: 7px;
-		}
 	}
 }
 .questions{
 	margin-left: 7em;
+}
+.new-question{
+	#question_description{
+		width: 30em;
+		height: 10em;
+	}
 }
