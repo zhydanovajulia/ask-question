@@ -1,11 +1,29 @@
-<div class="subject">
-	<%= render 'questions/rates', :question => question %>
-	<%= question.subject %>
-</div>
-<div class="description">
-	<%= question.description %>
-</div>
+<table class="question-table">
+	<tbody>
+		<tr>
+			<td>
+				<div class="vote-cell">
+					<%= render 'questions/rates', :question => question %>
+				</div>
+			</td>
+			<td>
+				<div class="question-cell">
+					<div class="subject">
+						<h2><%= question.subject %></h2>
+					</div>
+					<div class="description">
+						<%= question.description %>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 <div class="answers">
+	<div class="answers-head">
+		<%= render 'questions/answer_head', :question => question %>
+	</div>
 	<%= render 'answers/answers', :answers => question.answers, :question => question %>
 </div>
 <div class="new-answer">
