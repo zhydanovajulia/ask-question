@@ -1,6 +1,18 @@
-<div class="<%= dom_id(answer) %>">
-	<%= render 'answers/rates', :answer => answer %>
-	<%= answer.body %>
-</div>
+<table class="answer-table">
+	<tbody>
+   		<tr>
+   			<td>
+   				<div class="vote-cell">
+						<%= render 'answers/rates', :answer => answer %>
+					</div>
+   			</td>
+   			<td>
+   				<div class="<%= dom_id(answer) %>">
+						<%= answer.body %>
+					</div>		
+   			</td>
+   		</tr>
+	</tbody>
+</table>
 <%= link_to "Edit", edit_question_answer_path(question, answer) if answer.user == current_user %>
 <%= link_to "Add comment", "#" %>
