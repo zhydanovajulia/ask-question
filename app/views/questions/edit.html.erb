@@ -1,3 +1,8 @@
+<div class='errors'>
+	<% @question.errors.each do |attr, msg| %>
+  		<%= "#{attr} #{msg}" if @question.errors[attr].first == msg %>
+	<% end %>
+</div>
 <div class="edit-question">
 	<%= render 'form', :question => @question %>
 </div>
