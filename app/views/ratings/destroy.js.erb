@@ -1,5 +1,5 @@
 <% if @model.class.to_s == "Question" %>
-	$('.subject .vote').text("<%= @model.ratings_count %>");	
+	$('.vote.<%= dom_id(@model) %>').text("<%= @model.ratings_count %>");	
 <% elsif @model.class.to_s == "Answer" %>
-	$('.<%= dom_id(@model) %> .vote').text("<%= @model.ratings_count %>");	
+	$('.vote.<%= dom_id(@model) %>').text("<%= @model.ratings_count %>");	
 <% end %>
