@@ -1,12 +1,11 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-    	t.integer :user_id
-    	t.string :subject
-      t.string :description
-    	t.integer :rate
-    	t.integer :answers_count
-    	t.integer :wath_count
+      t.references :user
+    	t.text :subject, :null => false
+      t.text :description
+    	t.integer :rate, :default => 0
+    	t.integer :watch_count, :default => 0
       t.timestamps
     end
   end

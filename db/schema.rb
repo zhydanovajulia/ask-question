@@ -16,29 +16,28 @@ ActiveRecord::Schema.define(:version => 20120620200255) do
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
-    t.string   "body"
-    t.integer  "rate"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "body",                       :null => false
+    t.integer  "rate",        :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "answer_id"
-    t.string   "body"
+    t.integer  "answer_id",  :null => false
+    t.text     "body",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
-    t.string   "subject"
-    t.string   "description"
-    t.integer  "rate"
-    t.integer  "answers_count"
-    t.integer  "wath_count"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.text     "subject",                    :null => false
+    t.text     "description"
+    t.integer  "rate",        :default => 0
+    t.integer  "watch_count", :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "ratings", :force => true do |t|
