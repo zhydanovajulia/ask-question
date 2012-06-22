@@ -4,11 +4,15 @@ class QuestionsController < ApplicationController
   before_filter :author_require, :only => [:edit]
 
   def index
-  	@questions = Question.all
+  	@questions = Question.find(:all, :order => "created_at DESC")
   end
 
   def new
   	@question = Question.new
+  end
+
+  def show
+    @question.watch_count += 1
   end
 
   def create
