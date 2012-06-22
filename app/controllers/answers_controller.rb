@@ -10,31 +10,17 @@ class AnswersController < ApplicationController
 	end
 
 	def create
-		@question.update_attributes(:answers_count => @question.answers.count + 1)
-		@answer = @question.answers.build params[:answer].merge!(:user_id => current_user.id)
-		if @answer.save
-			respond_to do |format|
-        		format.js { render :show }
-      		end
-			# flash.now[:notice] = "Your answer added successfully"
-			# redirect_to question_path params[:question_id]
-		else
-			respond_to do |format|
-        		format.js { render :new }
-      		end
-			# flash.now[:alert] = "The answer wasn't created"
-			# render :new
-		end
+		@answer = @question.answers.create params[:answer].merge!(:user_id => current_user.id)
 	end
 
 	def update
 		if @answer.update_attributes params[:answer]
-			redirect_to question_path @question
-  		flash[:notice] = "Answer was updated"
-  	else
-  		flash[:alert] = "Answer wasn't updated"
-  		render :edit
-  	end
+			flash.now[:notice] = "Answer successfully created"
+			redirect_to question_path @answer.question
+		else
+			flash.now[:alert] = "Body can't be blank"
+			render :edit
+		end
 	end
 
 	private
