@@ -1,0 +1,5 @@
+<% if @answer %>
+ $('.answers').append("<%=j render 'answers/answer', :answer => @answer, :question => @answer.question %>");
+ $('.answers-head').html("<%=j render 'questions/answer_head', :question => @answer.question %>")
+ $('#answer_body').val('');
+<% end %>
