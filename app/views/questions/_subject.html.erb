@@ -1,17 +1,24 @@
 <div class="subject">
 	<%= link_to question.subject, question_path(question), :class => 'question-link' %>
-	<div class="question-info">
-		<div class="answers-count">
-			<%= pluralize(question.answers_count, 'answer') %>
-		</div>
-		<div class="user-info">
-			<div class="author">
-				<%= question.author.name %>
+		<div class="question-data">
+			<div class="rate">
+				<%= pluralize(question.average_rating_round, 'vote') %>	
 			</div>
-			<div class="created-at">
-				asked <%= question.created_at %>
+			<div class="<%= 'answers_count' if question.answers.count != 0  %>">
+				<%= pluralize(question.answers.count, 'answer') %>
 			</div>
 		</div>
+		<div class="question-info">
+			<div class="user-info">
+				<div class="author">
+					<%= question.author.name %>
+				</div>
+				<div class="created-at">
+					asked <%= question.created_at %>
+				</div>
+			</div>
+		</div>
+	<div class="edit">
+		<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
 	</div>
 </div>
-<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
