@@ -20,7 +20,13 @@ FactoryGirl.define do
 		f.association :user
 		f.rate 0
 		f.watch_count 0
-	end
+  end
+
+  factory :answer do |f|
+    f.sequence(:body) {|n| "answer#{n}"}
+    f.association :user
+    f .association :question
+  end
 
 	factory :question_rating,  class: Rating  do |f|
 		f.association :rateable, factory: :question
