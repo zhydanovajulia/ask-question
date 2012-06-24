@@ -1,4 +1,4 @@
-<table class="answer-table">
+<table class="answer-table" id="<%= dom_id(answer) %>">
 	<tbody>
    		<tr>
    			<td>
@@ -9,7 +9,7 @@
    			<td>
    				<div class="<%= dom_id(answer) %>">
 						<%= answer.body %>
-					</div>		
+  				</div>
    			</td>
    		</tr>
 	</tbody>
