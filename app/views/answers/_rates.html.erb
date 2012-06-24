@@ -2,7 +2,7 @@
 	<%= link_to image_tag("up.png", :border => 0), answer_ratings_path(answer), :remote => true, :method => :post, :title => 'vote up' %>
 </div>
 <div class="vote" id="<%= dom_id(answer) %>">
-	<%= answer.average_rating_round %>
+	<%= answer.ratings_count %>
 </div>
 <div class="down"> 
   <%= link_to image_tag("down.png", :border => 0), answer_ratings_path(answer), :remote => true, :method => :delete, :title => 'vote down' %>
