@@ -1,4 +1,4 @@
-<table class="comment-table">
+<table class="comment-table" id="<%= dom_id(comment) %>">
 	<tbody>
    		<tr>
    			<td>
@@ -6,6 +6,11 @@
 						<%= comment.body %>
 					</div>		
    			</td>
+         <td>
+           <div class="author">
+             commented by <%= comment.author %>
+           </div>
+         </td>
    		</tr>
 	</tbody>
 </table>

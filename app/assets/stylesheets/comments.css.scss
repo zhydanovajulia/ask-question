@@ -2,11 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .add-comment{
-	#comment_body{
-		width: 30em;
-		height: 10em;
-	}
+  margin-left: 7em;
+  #comment_body{
+	width: 30em;
+	height: 10em;
+  }
 }
 .comments{
 	margin-left: 7em;
+  .comment-table{
+    border-bottom: 1px dotted;
+  }
 }

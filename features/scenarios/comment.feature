@@ -12,5 +12,9 @@ Feature: In order to see  comments on the answers and questions
 
   Scenario: User can comment answer
     When I follow "Euro"
-    And I press "Add comment"
-    And I fill in
+    And I follow "Add comment"
+    And I wait for 1 second
+    And I fill in "comment[body]" with "new comment 1"
+    And I press "Create Comment"
+    Then I should see "Thanks for your comment"
+    Then I should see "new comment 1 r2d2"

@@ -13,8 +13,12 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = @answer.comments.create params[:comment]
-
+		@comment = @answer.comments.create params[:comment].merge!(:user => current_user)
+    if @comment.save
+      flash[:notice] = "Thanks for your comment"
+    else
+      flash[:alert] = "Fill comment body, please"
+    end
 	end
 
 	private
