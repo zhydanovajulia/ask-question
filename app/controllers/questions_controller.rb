@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_filter :author_require, :only => [:edit]
 
   def index
-  	@questions = Question.find(:all, :order => "created_at DESC")
+    @questions = Question.find(:all, :order => "created_at DESC").paginate(:page => params[:page], :per_page => 4)
   end
 
   def new

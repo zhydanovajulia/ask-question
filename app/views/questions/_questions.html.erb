@@ -1,5 +1,6 @@
 <div class="questions">
 	<% questions.each do |question| %>
 		<%= render 'subject', :question => question %>
-	<% end %>
+  <% end %>
 </div>
+<%= will_paginate questions, :container => false %>

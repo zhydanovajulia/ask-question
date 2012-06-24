@@ -5,6 +5,8 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
+  self.per_page = 4
+
   def author
   	self.user
   end
