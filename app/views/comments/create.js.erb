@@ -1,0 +1,4 @@
+<% if @comment %>
+	$('.comments').append("<%=j render 'comments/comment', :comment => @comment %>")
+	$('.add-comment').slideUp('slow')
+<% end %>

@@ -1,0 +1,12 @@
+<table class="comment-table">
+	<tbody>
+   		<tr>
+   			<td>
+   				<div class="<%= dom_id(comment) %>">
+						<%= comment.body %>
+					</div>		
+   			</td>
+   		</tr>
+	</tbody>
+</table>
+<%= link_to "Edit", edit_question_answer_comment_path(comment.answer.question, comment.answer, comment) if comment.user == current_user %>

@@ -13,6 +13,8 @@ module HtmlSelectorsHelpers
 
     when /^#{capture_model}(?: and prefix "(.+)")?$/
       obj = model!($1)
+      p "!!!!"
+      p obj
       prefix = $2
       "##{ActionController::RecordIdentifier.dom_id(obj, prefix)}"
 

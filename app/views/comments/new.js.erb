@@ -1,0 +1,4 @@
+$('.add-comment').html("<%=j render 'comments/form', :comment => @comment, 
+													   :answer => @answer, 
+													   :question => @answer.question %>")
+$('.add-comment').slideDown('slow')

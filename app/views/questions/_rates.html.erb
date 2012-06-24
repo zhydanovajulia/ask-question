@@ -1,9 +1,9 @@
-<div class="vote-up">
-	<%= link_to image_tag("up.png", :border => 0), question_ratings_path(question), :remote => true, :method => :post, :class => 'vote-up' %>
+<div class="up">
+	<%= link_to image_tag("up.png", :border => 0), question_ratings_path(question), :remote => true, :method => :post, :title => 'vote up' %>
 </div>
-<div class="vote <%= dom_id(question) %>">
-	<%= question.average_rating_round %>
+<div class="vote" id="<%= dom_id(question) %>">
+	<%= question.ratings_count %>
 </div>
-<div class="vote-down"> 
-  <%= link_to image_tag("down.png", :border => 0), question_ratings_path(question), :remote => true, :method => :delete, :class => 'vote-down' %>
+<div class="down"> 
+  <%= link_to image_tag("down.png", :border => 0), question_ratings_path(question), :remote => true, :method => :delete, :title => 'vote down' %>
 </div>

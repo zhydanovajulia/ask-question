@@ -1,0 +1,4 @@
+<%= form_for [question, answer, comment], :remote => comment.new_record? ? true : false do |f| %>
+  <%= f.text_area :body, :class => "input-xlarge" %></br>
+  <%= f.submit %>
+<% end %>

@@ -28,7 +28,7 @@ group :test do
   gem 'rspec'
 	gem 'cucumber-rails'
   gem 'cucumber'
-	gem 'capybara'
+  gem 'capybara-webkit'
   gem 'pickle'
 	gem 'database_cleaner'
 	gem 'factory_girl'

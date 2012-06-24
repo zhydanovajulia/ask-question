@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question.watch_count += 1
+    @question.update_attributes(:watch_count => @question.watch_count + 1)
   end
 
   def create
