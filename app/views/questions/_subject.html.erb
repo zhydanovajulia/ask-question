@@ -7,15 +7,18 @@
 			<div class="<%= 'answers_count' if question.answers.count != 0  %>">
 				<%= pluralize(question.answers.count, 'answer') %>
 			</div>
-		</div>
-		<div class="question-info">
-			<div class="user-info">
-				<div class="author">
+      <div class="watch-count">
+        <%= pluralize(question.watch_count, 'view') %>
+      </div>
+    </div>
+  <div class="question-info">
+      <div class="user-info">
+        <div class="author">
 					<%= question.author.name %>
-				</div>
-				<div class="created-at">
+        </div>
+        <div class="created-at">
 					asked <%= question.created_at %>
-				</div>
+        </div>
 			</div>
 		</div>
 	<div class="edit">
