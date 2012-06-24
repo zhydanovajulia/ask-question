@@ -14,3 +14,13 @@ Feature: In order to manage answers
     And I fill in "answer[body]" with "new answer"
     And I press "Create Answer"
     Then I should see "1 Answer" within ".answers-head"
+
+  Scenario: User can edit his answer
+    When I follow "Alien"
+    And I fill in "answer[body]" with "new answer"
+    And I press "Create Answer"
+    And I follow "Edit"
+    And I fill in "answer[body]" with "very new answer"
+    And I press "Update Answer"
+    Then I should see "very new answer"
+    And I wait for 5 seconds
