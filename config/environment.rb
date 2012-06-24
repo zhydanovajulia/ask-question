@@ -6,3 +6,4 @@ require File.expand_path('../application', __FILE__)
 AskQuestion::Application.initialize!
 
 require 'will_paginate'
+require 'will_paginate/array'
