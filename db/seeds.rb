@@ -16,18 +16,31 @@ questions = [{subject: "Why can't I connect to an NNTP server?", description: "u
  {subject: "Alternate Row Colors in Html Tables Using Django", description: "How does one alternate row colors in a table in django that's generated using a for loop from a list? In asp.net it is possible to do math on the view to easily calculate that, but from what I"},
 {subject: "user enable/disable rotation", description: "I want to allow the interface to change only if the flag enableRotation=1. I been messing around with all the rotation methods and am getting nowhere"}]
 
-new_questions = []
-questions.each do |question|
-	new_questions << Question.create(subject: question[:subject], description: question[:description], user_id: new_users.map(&:id).map(&:to_i).sample)
-end
+question1 = Question.create(subject: questions[0][:subject], description: questions[0][:description], user_id: new_users[0].id)
+question2 = Question.create(subject: questions[1][:subject], description: questions[1][:description], user_id: new_users[1].id)
+question3 = Question.create(subject: questions[2][:subject], description: questions[2][:description], user_id: new_users[2].id)
+question4 = Question.create(subject: questions[3][:subject], description: questions[3][:description], user_id: new_users[1].id)
 
 answers = [{body: "add this to your canvas app's fb js"},
 						{body: "Check your app settings and make sure you have set the Canvas Width to 'fluid' and Canvas Height to 'fixed' (Go to Settings > Advanced > Scroll to Canvas Settings.)"},
 						{body: "There are various solutions you could try below. Please comment as to which one, or if none of them work and I will update this answer accordingly."}]
 
-new_answers = []
-answers.each do |answer|
-	new_answers << Answer.create(question_id: new_questions.map(&:id).map(&:to_i).sample,
-								user_id: new_users.map(&:id).map(&:to_i).sample,
-								body: answer[:body])	
-end						
+answer1 = Answer.create(question_id: question1.id, user_id: new_users[1].id,	body: answers[0][:body])	
+answer2 = Answer.create(question_id: question1.id, user_id: new_users[2].id,	body: answers[1][:body])	
+answer3 = Answer.create(question_id: question2.id, user_id: new_users[0].id,	body: answers[2][:body])	
+answer4 = Answer.create(question_id: question2.id, user_id: new_users[2].id,	body: answers[1][:body])	
+answer5 = Answer.create(question_id: question3.id, user_id: new_users[1].id,	body: answers[2][:body])	
+answer6 = Answer.create(question_id: question3.id, user_id: new_users[0].id,	body: answers[0][:body])	
+answer7 = Answer.create(question_id: question4.id, user_id: new_users[0].id,	body: answers[0][:body])	
+
+Rating.create(:rateable_id => answer1.id, :rateable_type => "Answer", :rater => new_users[0], :rater_type => "User", :score => 1)						
+Rating.create(:rateable_id => answer2.id, :rateable_type => "Answer", :rater => new_users[1], :rater_type => "User", :score => 1)						
+Rating.create(:rateable_id => answer3.id, :rateable_type => "Answer", :rater => new_users[2], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => answer4.id, :rateable_type => "Answer", :rater => new_users[1], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => answer5.id, :rateable_type => "Answer", :rater => new_users[2], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => answer6.id, :rateable_type => "Answer", :rater => new_users[2], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => answer7.id, :rateable_type => "Answer", :rater => new_users[2], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => question1.id, :rateable_type => "Question", :rater => new_users[1], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => question2.id, :rateable_type => "Question", :rater => new_users[0], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => question3.id, :rateable_type => "Question", :rater => new_users[1], :rater_type => "User", :score => 1)
+Rating.create(:rateable_id => question4.id, :rateable_type => "Question", :rater => new_users[2], :rater_type => "User", :score => 1)
