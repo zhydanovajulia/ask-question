@@ -16,10 +16,9 @@ ActiveRecord::Schema.define(:version => 20120620200255) do
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
-    t.text     "body",                       :null => false
-    t.integer  "rate",        :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.text     "body",        :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20120620200255) do
     t.integer  "user_id"
     t.text     "subject",                    :null => false
     t.text     "description"
-    t.integer  "rate",        :default => 0
     t.integer  "watch_count", :default => 0
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false

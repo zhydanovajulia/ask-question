@@ -18,7 +18,6 @@ FactoryGirl.define do
 		f.sequence(:subject) {|n| "subject #{n}"}
 		f.sequence(:description) {|n| "description #{n}"}
 		f.association :user
-		f.rate 0
 		f.watch_count 0
   end
 
