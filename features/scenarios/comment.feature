@@ -17,4 +17,4 @@ Feature: In order to see  comments on the answers and questions
     And I fill in "comment[body]" with "new comment 1"
     And I press "Create Comment"
     Then I should see "Thanks for your comment"
-    Then I should see "new comment 1 r2d2"
+    Then I should see "new comment 1 commented by r2d2"
