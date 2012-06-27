@@ -24,7 +24,7 @@
 	<div class="answers-head">
 		<%= render 'questions/answer_head', :question => question %>
 	</div>
-	<%= render 'answers/answers', :answers => question.sorted_answers, :question => question %>
+	<%= render 'answers/answers', :answers => question.all_answers, :question => question %>
 </div>
 <div class="new-answer">
   <%= render 'answers/form', :question => question, :answer => Answer.new %>

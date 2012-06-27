@@ -22,4 +22,15 @@ class Question < ActiveRecord::Base
                 joins('LEFT JOIN ratings ON answers.id = rateable_id').
                 group('answers.id').order('count(rateable_id) DESC')
   end
+
+  def answers_without_rating
+    Answer.joins('LEFT JOIN ratings ON answers.id = rateable_id').
+            where("`answers`.`question_id` = ?", self.id).
+            where('score IS NULL').
+            order('answers.created_at DESC')
+  end
+
+  def all_answers
+    sorted_answers + answers_without_rating
+  end
 end
