@@ -23,7 +23,9 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		@comment.update_attributes params[:comment]
+		unless @comment.update_attributes params[:comment]
+			flash.now[:alert] = "Comment wasn't save"
+		end
 	end
 
 	private
