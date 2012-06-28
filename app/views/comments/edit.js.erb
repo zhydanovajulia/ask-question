@@ -1,0 +1,3 @@
+<% if @comment.id? %>
+$('.comments.<%= dom_id(@comment.answer) %> #<%= dom_id(@comment) %> .edit-comment.<%= dom_id(@comment) %>').slideDown('slow')
+<% end %>

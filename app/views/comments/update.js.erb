@@ -1,0 +1,2 @@
+$('.comments.<%= dom_id(@comment.answer) %> #<%= dom_id(@comment) %> .comment-table .<%= dom_id(@comment) %>').text("<%= @comment.body %>")
+$('.comments.<%= dom_id(@comment.answer) %> #<%= dom_id(@comment) %> .edit-comment.<%= dom_id(@comment) %>').slideUp('slow')

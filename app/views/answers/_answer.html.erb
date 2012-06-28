@@ -16,7 +16,7 @@
 </table>
 <%= link_to "Edit", edit_question_answer_path(question, answer) if answer.user == current_user %>
 <%= link_to "Add comment", new_question_answer_comment_path(question, answer), :remote => true, :method => :get %>
-<div class="comments" id="<%= dom_id(answer) %>">
+<div class="comments <%= dom_id(answer) %>">
   <%= render 'comments/comments', :comments => answer.comments %>
 </div>
 <div class="add-comment" id="<%= dom_id(answer) %>" hidden>

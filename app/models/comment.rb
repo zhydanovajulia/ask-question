@@ -4,6 +4,6 @@ class Comment < ActiveRecord::Base
   validates :body, :presence => true
 
   def author
-    self.user.name
+    self.user
   end
 end

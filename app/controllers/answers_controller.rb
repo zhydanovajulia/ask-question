@@ -18,7 +18,6 @@ class AnswersController < ApplicationController
 			flash.now[:notice] = "Answer successfully created"
 			redirect_to question_path @answer.question
 		else
-			flash.now[:alert] = "Body can't be blank"
 			render :edit
 		end
 	end

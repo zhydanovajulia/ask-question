@@ -1,6 +1,6 @@
 $('.flash').html("<%=j render 'layouts/flash_messages', :flash => flash %>");
 <% if @comment.id? %>
-  $('.comments#<%= dom_id(@answer) %>').append("<%=j render 'comments/comment', :comment => @comment, :question => @comment.answer.question %>")
+  $('.comments.<%= dom_id(@answer) %>').html("<%=j render 'comments/comments', :comments => @answer.comments %>")
   $('.add-comment#<%= dom_id(@answer) %>').slideUp('slow')
   $('.add-comment#<%= dom_id(@answer) %> #comment_body').val('');
 <% end %>

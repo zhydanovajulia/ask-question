@@ -1,4 +1,4 @@
-<table class="comment-table" id="<%= dom_id(comment) %>">
+<table class="comment-table">
 	<tbody>
    		<tr>
    			<td>
@@ -8,10 +8,13 @@
    			</td>
          <td>
            <div class="author">
-             commented by <%= comment.author %>
+             commented by <%= comment.author.name %>
            </div>
          </td>
    		</tr>
 	</tbody>
 </table>
-<%= link_to "Edit", edit_question_answer_comment_path(comment.answer.question, comment.answer, comment) if comment.user == current_user %>
+<%= link_to "Edit", edit_question_answer_comment_path(comment.answer.question, comment.answer, comment), :remote => true, :method => :get if current_user == comment.author %>
+<div class="edit-comment <%= dom_id(comment) %>" hidden>
+  <%= render 'comments/form', :comment => comment, :answer => comment.answer, :question => comment.answer.question %>
+</div>
