@@ -4,6 +4,8 @@ class Question < ActiveRecord::Base
   validates :subject, :presence => true
   belongs_to :user
   has_many :answers
+  has_many :tags, :through => :taggings
+  has_many :taggings
 
   self.per_page = 4
 

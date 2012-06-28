@@ -1,0 +1,15 @@
+<div class="tags-list">
+	 <ul>
+    <% all_tags.each do |name| %>
+      <li<%= " class='selected'" if selected_tags.include? name %>>
+        <span><%= name %></span>
+      </li>
+    <% end %>
+  </ul>
+  <div id='add_new_tag'>
+    <span id='show_new_tag_form'>New tag</span>
+    <%= text_field_tag 'new_tag', '', :size => 7, :placeholder => 'New Tag' %>
+    <span class="add" title="new tag"></span>
+    <span class="cancel" title="cancel"></span>
+  </div>
+</div>
