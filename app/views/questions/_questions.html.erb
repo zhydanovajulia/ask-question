@@ -3,4 +3,7 @@
 		<%= render 'subject', :question => question %>
   <% end %>
 </div>
+<% content_for :sidebar do %>
+  <%= render 'tags/tags_cloud' %>
+<% end %>
 <%= will_paginate questions, :container => false %>

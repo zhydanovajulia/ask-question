@@ -1,5 +1,4 @@
 @import "mixins";
-
 .token-input-wrapper ul li {
   position: relative;
   font-size: 0.78em;
@@ -29,14 +28,14 @@
 }
 
 .token-input-wrapper input{
-  //border: none;
+  border: none;
   list-style-type: none;
 }
 
 .token-input-wrapper ul{
+  border: 1px solid grey;
   margin: 0;
   padding: 2px;
-  margin-left: 7em;
   max-width: 300px;
 }
 

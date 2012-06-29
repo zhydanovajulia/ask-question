@@ -19,3 +19,4 @@
 //= require /utils/jquery_tools
 //= require_self
 //= require ./utils/token_input
+//= require ./utils/jqcloud-1.0.0.js
