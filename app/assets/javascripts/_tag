@@ -1,0 +1,80 @@
+Tags = {
+  init: function() {
+    this.tagList = $('.tags-list');
+    this.hiddenField = $('#question_tag_list');
+    this.newTagForm = $('#new_tag');
+    this.newTagShowSpan = $('#show_new_tag_form');
+    this.bind();
+  },
+  bind: function() {
+    that = this
+    this.tagList.on('click', 'li', function() {
+      $(this).toggleClass('selected');
+    });
+    $(document).find('*').bind('click', function(e) {
+      if($(e.target).closest('#add_new_tag').length === 0){
+        that.hideAddTagForm();
+      }
+    });
+    this.newTagShowSpan.bind('click', $.proxy(this.showAddTagForm, this));
+    this.newTagForm.bind('keydown', 'return', function(e) {
+      console.log($(e.target).val());
+      if($.trim($(e.target).val()).length !== 0){
+        Tags.addTags(); 
+        return false;
+      }
+    });
+    this.newTagForm.bind('keydown', 'esc', $.proxy(this.hideAddTagForm, this));
+    $(this.newTagForm).ajaxSuccess(function() { $(document).trigger('change:status')});
+  },
+  changeTags: function($li) {
+    $.ajax({
+      type: "put",
+      url: "#{window.location.href.replace(/edit/, '')}/tag",
+      data: "question[tag_list]=#{$('.tags-list').find('.selected').map(-> $(this).text()).get().join(',')}",
+    }); 
+  },
+  existedTags: function() {
+   $.map($('.tags-list').find('li span'), function(val){return $.trim($(val).text())});
+  },
+  updateHiddenInput: function() {
+    this.hiddenField.val($('.tags-list').find('.selected').map(function(){ this.text()}).get().join(','));
+  },
+  showAddTagForm: function() {
+    this.newTagShowSpan.hide();
+    this.newTagForm.show().focus();
+  },
+  addTags: function() {
+    console.log("!!!!!!!!!!!!!");
+    that = this;
+    existed = this.existedTags();
+    console.log(existed);
+    tags = this.newTagForm.val().split(',');
+    $tagList = this.tagList;
+    $.each(tags, function(i, val){
+       tag = $.trim(val);
+       if(tag.length !== 0 && ($.inArray(tag, existed) === -1)){
+        console.log(existed);
+          // existed.push(tag);
+          $("<li class='selected'><span>#{tag}</span></li>").appendTo($tagList.find('ul'));
+          that.hideAddTagForm();
+          // if($('.edit_question')[0]){
+            // that.changeTags();
+          // }
+        }
+    });
+  },
+  hideAddTagForm: function() {
+    if(this.keyCode === 27){
+    this.newTagShowSpan.show();
+    this.newTagForm.hide().val('');
+    }
+  }
+};
+
+$(function() {
+  Tags.init();
+  $('form.edit_question, form.new_question').live('submit', function(){
+    Tags.updateHiddenInput();
+  });
+});

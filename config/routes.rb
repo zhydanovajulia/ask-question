@@ -7,6 +7,7 @@ AskQuestion::Application.routes.draw do
   
   resources :services, :only => [:index, :create, :destroy]
   resources :questions do
+    resources :tags
     resource :ratings
     resources :answers do
       resources :comments

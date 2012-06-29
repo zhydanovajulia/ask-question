@@ -4,6 +4,6 @@ module QuestionsHelper
 	end
 
 	def selected_tags
-		@question.tags
+		@question.tags.map(&:name)
 	end
 end

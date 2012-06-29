@@ -11,6 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-
+//= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require tag	
+//= require ./utils/comment
+//= require /utils/underscore
+//= require /utils/jquery_tools
+//= require_self
+//= require ./utils/token_input

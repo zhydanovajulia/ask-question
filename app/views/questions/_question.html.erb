@@ -19,6 +19,9 @@
 		</tr>
 	</tbody>
 </table>
+<div class="edit">
+	<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
+</div>
 <%= render 'question_tags' %>
 <div class="answers">
 	<div class="answers-head">

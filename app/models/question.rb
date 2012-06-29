@@ -6,8 +6,23 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :tags, :through => :taggings
   has_many :taggings
+  attr_accessible :subject, :description, :tag_list, :watch_count
 
   self.per_page = 4
+
+  def tag_list= tags
+    tags = tags.to_s.split(',') if tags.is_a?(String) or tags.nil?
+    list_of_new_tags(tags).each do |tag_name|
+      self.tags.create(:name => tag_name)
+    end
+    removed_tags = self.tag_ids - existing_tags(tags).map(&:id)
+    self.taggings.where(:tag_id => removed_tags).destroy_all
+    self.tag_ids = existing_tags(tags).map(&:id)
+  end
+
+  def tag_list
+    self.tags.map(&:name)
+  end
 
   def author
   	self.user
@@ -35,4 +50,19 @@ class Question < ActiveRecord::Base
   def all_answers
     sorted_answers + answers_without_rating
   end
+
+  private
+
+  def list_of_new_tags tags
+    parsed_tags(tags) - existing_tags(tags).map(&:name)
+  end
+
+  def existing_tags tags
+    Tag.where(:name => parsed_tags(tags))
+  end
+
+  def parsed_tags tags
+    tags.map(&:strip)
+  end
+
 end
