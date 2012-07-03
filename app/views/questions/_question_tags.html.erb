@@ -1,9 +1,7 @@
-<div class="tags-list">
-	 <ul>
-    <% selected_tags.each do |name| %>
-      <li>
-        <span><%= name %></span>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<ul class="tags tags-list">
+  <% selected_tags(question).each do |name| %>
+    <li>
+      <span><%= name %></span>
+    </li>
+  <% end %>
+</ul>
