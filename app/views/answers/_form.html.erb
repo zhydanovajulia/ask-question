@@ -1,4 +1,5 @@
 <%= form_for [question, answer], :remote => answer.new_record? ? true : false do |f| %>
   <%= f.text_area :body, :class => "input-xlarge" %></br>
   <%= f.submit %>
+  <%= link_to "Cancel", question_path(question) unless answer.new_record? %>
 <% end %>
