@@ -1,28 +1,35 @@
 <div class="subject" id="<%= dom_id(question) %>">
-	<%= link_to question.subject, question_path(question), :class => 'question-link' %>
-		<div class="question-data">
-			<div class="rate">
-				<%= pluralize(question.average_rating_round, 'vote') %>	
-			</div>
-			<div class="<%= 'answers_count' if question.answers.count != 0  %>">
-				<%= pluralize(question.answers.count, 'answer') %>
-			</div>
-      <div class="watch-count">
-        <%= pluralize(question.watch_count, 'view') %>
-      </div>
-    </div>
-  <div class="question-info">
-      <div class="user-info">
-        <div class="author">
-					<%= question.author.name %>
-          <%= gravatar_image_tag question.author.email %>
-        </div>
-        <div class="created-at">
-					asked <%= question.created_at %>
-        </div>
-			</div>
+	<div class="question-data">
+		<div class="rate">
+			<%= pluralize(question.average_rating_round, 'vote') %>	
 		</div>
-	<div class="edit">
-		<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
+		<div class="<%= 'answers_count' if question.answers.count != 0  %>">
+			<%= pluralize(question.answers.count, 'answer') %>
+		</div>
+		<div class="watch-count">
+    		<%= pluralize(question.watch_count, 'view') %>
+  	</div>
 	</div>
+	<div class="link-to-question">
+		<%= link_to question.subject, question_path(question), :class => 'question-link' %>
+	</div>
+  <div class="question-info">
+    <div class="user-info">
+      <div class="created-at">
+				asked <%= question.created_at %>
+      </div>
+      <div class="author">
+        <%= gravatar_image_tag question.author.email %>
+        <div class="author-name">
+          <%= question.author.name %>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+<div class="subject_bottom">
+  <%= render 'question_tags', :question => question %>
+  <div class="edit">
+    <%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
+  </div>
 </div>
