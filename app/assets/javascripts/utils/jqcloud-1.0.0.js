@@ -40,7 +40,6 @@
     }
 
     var drawWordCloud = function() {
-      console.log("INSIDE");
       // Helper function to test if an element overlaps others
       var hitTest = function(elem, other_elems){
         // Pairwise overlap detection
