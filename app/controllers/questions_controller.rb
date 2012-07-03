@@ -1,10 +1,17 @@
 class QuestionsController < ApplicationController
+  include QuestionsHelper 
+
   before_filter :authenticate_user!
   before_filter :find_question, :only => [:show, :edit, :update]
   before_filter :author_require, :only => [:edit]
 
   def index
-    @questions = Question.find(:all, :order => "created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @questions = if params[:tag]
+       filtered_questions params[:tag]
+    else
+       Question.find(:all, :order => "created_at DESC")
+    end
+    @questions = @questions.paginate(:page => params[:page], :per_page => 4)
   end
 
   def new
