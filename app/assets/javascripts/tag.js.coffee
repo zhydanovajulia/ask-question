@@ -1,12 +1,21 @@
 Tags =
-  init: (options)->
+  init: ->
     @hiddenField = $('#question_tag_list')
-    @getTags()
-    @renderTagsCloud(options)
+    @binding()
+    if $('body.questions.edit').length || $('body.questions.new').length
+      @getTags()
+    if $('body.questions.index').length
+      @renderTagsCloud()
+  binding: ->
+    $('.tags-cloud span').live 'click', ->
+      $('#tag').val $(this).text()
+      $('.form_for_tag').submit()
+
   getTags: ->
+    qid = $('#tags').data('question-id')
     $.ajax
       url: $('#tags').data('tags-url')
-      data: $('#tags').data('question-id')
+      data: {question_id: qid}
       success: (data)->
         $('#tags').tokenInput({
           possibleTags: data.tags,
