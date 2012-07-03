@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :tags, :through => :taggings
   has_many :taggings
-  attr_accessible :subject, :description, :tag_list, :watch_count
+  attr_accessible :subject, :description, :watch_count, :user_id, :tag_list
 
   self.per_page = 4
 
@@ -18,6 +18,15 @@ class Question < ActiveRecord::Base
     removed_tags = self.tag_ids - existing_tags(tags).map(&:id)
     self.taggings.where(:tag_id => removed_tags).destroy_all
     self.tag_ids = existing_tags(tags).map(&:id)
+  end
+
+  def self.build_with_tags options
+    list_of_tags = options.delete(:tag_list)
+    if question = Question.create(options)
+      question.tag_list = list_of_tags
+      return question
+    end
+    false
   end
 
   def tag_list
