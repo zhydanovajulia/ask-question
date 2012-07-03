@@ -16,8 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-  	@question = Question.new params[:question].merge!(:user_id => current_user.id)
-  	if @question.save
+  	if @question = Question.build_with_tags(params[:question].merge!(:user_id => current_user.id))
   		redirect_to question_path @question
   		flash[:notice] = "Question was created"
   	else
