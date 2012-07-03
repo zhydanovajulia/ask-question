@@ -22,7 +22,7 @@
 <div class="edit">
 	<%= link_to "Edit", edit_question_path(question) if question.user == current_user %>
 </div>
-<%= render 'question_tags' %>
+<%= render 'question_tags', :question => question %>
 <div class="answers">
 	<div class="answers-head">
 		<%= render 'questions/answer_head', :question => question %>
