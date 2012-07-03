@@ -3,8 +3,8 @@ var Comment = {
   	  this.bindings();
   	},
  	bindings: function() {
- 		$('a.cancel-comment').bind('click', function(){
- 			$(this).closest('form').parent().slideUp('slow');
+ 		$('a.cancel-comment').live('click', function(){
+ 			$(this).closest('.edit_comment').parent().slideUp('slow');
  			return false;
  		})
  	}
