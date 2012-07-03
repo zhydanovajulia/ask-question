@@ -30,3 +30,5 @@ $ ->
   $('form.edit_question').live 'submit', ->
     Tags.updateHiddenInput()
 
+  $('form.new_question').live 'submit', ->
+    Tags.updateHiddenInput()
