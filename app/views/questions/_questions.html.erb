@@ -6,4 +6,6 @@
 <% content_for :sidebar do %>
   <%= render 'tags/tags_cloud' %>
 <% end %>
-<%= will_paginate questions, :container => false %>
+<% content_for :footer do %>
+	<%= will_paginate questions, :container => false %>
+<% end %>
