@@ -22,7 +22,8 @@ class Question < ActiveRecord::Base
 
   def self.build_with_tags options
     list_of_tags = options.delete(:tag_list)
-    if question = Question.create(options)
+    question = Question.create(options)
+    if question.save
       question.tag_list = list_of_tags
       return question
     end
