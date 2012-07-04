@@ -16,7 +16,7 @@
   <div class="question-info">
     <div class="user-info">
       <div class="created-at">
-				asked <%= question.created_at %>
+				asked <%= question.created_at.strftime('%a %d %H:%M') %>
       </div>
       <div class="author">
         <%= gravatar_image_tag question.author.email %>
