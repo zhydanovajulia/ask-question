@@ -7,7 +7,7 @@ module TagsHelper
 		tags.each do |tag|
 			tag_array	<< {text: tag.name, weight: tag.count}
     end
-    Tag.all.map { |tag| tag_array << {text: tag.name, weight: 0} unless tag_array.include?(tag) }
+    Tag.all.map { |tag| tag_array << {text: tag.name, weight: 0} unless tag_array.any?{ |t| t[:text] == tag.name } }
     tag_array
 	end
 end
