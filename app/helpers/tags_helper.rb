@@ -6,7 +6,8 @@ module TagsHelper
 						group('taggings.tag_id')
 		tags.each do |tag|
 			tag_array	<< {text: tag.name, weight: tag.count}
-		end
-		tag_array
+    end
+    Tag.all.map { |tag| tag_array << {text: tag.name, weight: 0} unless tag_array.include?(tag) }
+    tag_array
 	end
 end
