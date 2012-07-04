@@ -30,9 +30,8 @@ module ServicesHelper
         flash[:notice] = 'Sign in via ' + user_info[:provider].capitalize + ' has been added to your account ' + existing_user.email + '. Signed in successfully!'
         sign_in_and_redirect(:user, existing_user)
       else
-        name = user_info[:name][0, 39] if user_info[:name].length > 39             # otherwise our user validation will hit us
-        new_user = User.new :email => user_info[:email], :password => SecureRandom.hex(10), :name => name
-        new_user.services.build(:provider => user_info[:provider], :uid => user_info[:uid], :uname => name, :uemail => user_info[:email])
+        new_user = User.new :email => user_info[:email], :password => SecureRandom.hex(10), :name => user_info[:name]
+        new_user.services.build(:provider => user_info[:provider], :uid => user_info[:uid], :uname => user_info[:name], :uemail => user_info[:email])
         new_user.save!
         flash[:notice] = 'Your account on Ask Question has been created via ' + user_info[:provider].capitalize
         sign_in_and_redirect(:user, new_user)
