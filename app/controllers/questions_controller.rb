@@ -32,10 +32,6 @@ class QuestionsController < ApplicationController
   	end
   end
 
-  def edit
-    session[:return_to] ||= request.referer
-  end
-
   def update
   	if @question.update_attributes params[:question]
   		redirect_to question_path @question
