@@ -20,6 +20,7 @@ question1 = Question.create(subject: questions[0][:subject], description: questi
 question2 = Question.create(subject: questions[1][:subject], description: questions[1][:description], user_id: new_users[1].id)
 question3 = Question.create(subject: questions[2][:subject], description: questions[2][:description], user_id: new_users[2].id)
 question4 = Question.create(subject: questions[3][:subject], description: questions[3][:description], user_id: new_users[1].id)
+question5 = Question.create(subject: questions[0][:subject], description: questions[0][:description], user_id: new_users[0].id)
 
 answers = [{body: "add this to your canvas app's fb js"},
 						{body: "Check your app settings and make sure you have set the Canvas Width to 'fluid' and Canvas Height to 'fixed' (Go to Settings > Advanced > Scroll to Canvas Settings.)"},
