@@ -44,3 +44,9 @@ Rating.create(:rateable_id => question1.id, :rateable_type => "Question", :rater
 Rating.create(:rateable_id => question2.id, :rateable_type => "Question", :rater => new_users[0], :rater_type => "User", :score => 1)
 Rating.create(:rateable_id => question3.id, :rateable_type => "Question", :rater => new_users[1], :rater_type => "User", :score => 1)
 Rating.create(:rateable_id => question4.id, :rateable_type => "Question", :rater => new_users[2], :rater_type => "User", :score => 1)
+
+tags = ['ruby', 'rails', 'js', 'javascript', 'jquery', 'css', 'html5', 'jquery-events', 'js-events']
+
+tags.each do |tag|
+  Tag.create(name: tag)
+end
