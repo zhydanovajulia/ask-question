@@ -24,10 +24,10 @@ test: &test
 
 production:
   adapter: mysql2
-  database: ask_question_production
+  database: ask_question
   host: localhost
-  user: root
-  password: 
+  user: admin
+  password:  
   encoding: utf8
 
 cucumber:
