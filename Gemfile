@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'gravatar_image_tag'
+gem 'rvm-capistrano'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
