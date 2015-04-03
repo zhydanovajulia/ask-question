@@ -1,1 +1,3 @@
 Run script/current when application cloned.
+
+test!!!
