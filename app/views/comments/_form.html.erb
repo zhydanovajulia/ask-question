@@ -1,5 +1,9 @@
 <%= form_for [question, answer, comment], :remote => true do |f| %>
-  <%= f.text_area :body, :class => "input-xlarge" %> </br>
-  <%= f.submit %>
-  <%= link_to "Cancel", "#", :class => 'cancel-comment' %>
+  <div class="form-group">
+    <%= f.text_area :body, :class => "input-xlarge form-control" %>
+  </div>  
+  <div class="btn-group" role="group">
+    <%= f.submit "Create", class: "btn btn-default btn-success" %>
+    <%= link_to "Cancel", "#", :class => 'cancel-comment btn btn-default' %>
+  </div>
 <% end %>

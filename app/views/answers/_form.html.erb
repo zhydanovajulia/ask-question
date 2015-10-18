@@ -1,5 +1,9 @@
 <%= form_for [question, answer], :remote => answer.new_record? ? true : false do |f| %>
-  <%= f.text_area :body, :class => "input-xlarge" %></br>
-  <%= f.submit %>
-  <%= link_to "Cancel", question_path(question) unless answer.new_record? %>
+  <div class="form-group">
+    <%= f.text_area :body, :class => "input-xlarge form-control" %>
+  </div>  
+  <div class="btn-group" role="group">
+    <%= f.submit "Create", class: "btn btn-default btn-success" %>
+    <%= link_to "Cancel", question_path(question), class: "btn btn-default" unless answer.new_record? %>
+  </div>
 <% end %>
