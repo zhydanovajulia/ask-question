@@ -5,9 +5,15 @@ module ApplicationHelper
 
 	def logged_in_as
 		if user_signed_in?
-      link_to("Sign out", main_app.destroy_user_session_path, :title => "#{current_user.email} logout", :method => :delete)
+      content_tag(:div, current_user.email, class: "navbar-text")
     end
 	end
+
+  def log_out
+    if user_signed_in?
+      link_to("Sign out", main_app.destroy_user_session_path, :method => :delete)
+    end
+  end
 
 	def flash_messages(css_class)
     flash.map do |key, value|
