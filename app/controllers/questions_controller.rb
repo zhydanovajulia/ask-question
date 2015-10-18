@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @questions = if params[:tag]
        filtered_questions params[:tag]
     else
-       Question.find(:all, :order => "created_at DESC")
+       Question.all
     end
     @questions = @questions.paginate(:page => params[:page], :per_page => 4)
   end

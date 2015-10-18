@@ -12,11 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap-sprockets
 //= require tag	
-//= require ./utils/comment
-//= require /utils/underscore
-//= require /utils/jquery_tools
+//= require_tree ./utils
 //= require_self
-//= require ./utils/token_input
-//= require ./utils/jqcloud-1.0.0.js

@@ -1,0 +1,16 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import "mixins";
+@import "token_input";
+@import "answers";
+@import "comments";
+@import "jqcloud";
+@import "questions";
+@import "ratings";
+@import "tags";
+
+a{
+	&hover{
+		cursor: pointer;
+	}
+}

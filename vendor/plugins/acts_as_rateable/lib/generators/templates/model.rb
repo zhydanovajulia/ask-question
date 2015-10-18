@@ -6,7 +6,7 @@ class Rating < ActiveRecord::Base
   scope :for_rater_type, lambda { |rater_type| where("rater_type = ?", rater_type) }
   scope :for_rateable_type, lambda { |rateable_type| where("rateable_type = ?", rateable_type) }
   scope :recent, lambda { |from| where(["created_at > ?", (from || 2.weeks.ago).to_s(:db)]) }
-  scope :descending, order("ratings.created_at DESC")
+  scope :descending, -> { order("ratings.created_at DESC") }
   
   belongs_to :rateable, :polymorphic => true
   belongs_to :rater, :polymorphic => true

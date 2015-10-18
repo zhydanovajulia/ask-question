@@ -3,7 +3,7 @@ var Comment = {
   	  this.bindings();
   	},
  	bindings: function() {
- 		$('a.cancel-comment').live('click', function(){
+ 		$('a.cancel-comment').on('click', function(){
  			$(this).closest('.edit_comment').parent().slideUp('slow');
  			return false;
  		})
@@ -16,7 +16,7 @@ var Answer = {
 		this.bindings();
 	},
 	bindings: function() {
-		$('a.cancel-comment').live('click', function(){
+		$('a.cancel-comment').on('click', function(){
       $(this).closest('.add-comment').slideUp('slow');
       return false;
     });

@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
   acts_as_rateable
   
-  attr_accessible :user_id, :body, :rate, :question_id
+  # attr_accessible :user_id, :body, :rate, :question_id
   validates :body, :presence => true
 
   belongs_to :question

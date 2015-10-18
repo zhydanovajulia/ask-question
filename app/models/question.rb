@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :tags, :through => :taggings
   has_many :taggings
-  attr_accessible :subject, :description, :watch_count, :user_id, :tag_list
+  # attr_accessible :subject, :description, :watch_count, :user_id, :tag_list
 
   self.per_page = 4
 
@@ -44,7 +44,7 @@ class Question < ActiveRecord::Base
 
   def sorted_answers
     Answer.select('answers.*, count(rateable_id) as ratings_count').
-                where("`answers`.`question_id` = ? OR `answers`.`question_id` = null", self.id).
+                where("question_id = ? OR question_id = null", self.id).
                 where("rateable_type = 'Answer'").
                 joins('LEFT JOIN ratings ON answers.id = rateable_id').
                 group('answers.id').order('count(rateable_id) DESC')
@@ -52,7 +52,7 @@ class Question < ActiveRecord::Base
 
   def answers_without_rating
     Answer.joins('LEFT JOIN ratings ON answers.id = rateable_id').
-            where("`answers`.`question_id` = ?", self.id).
+            where("question_id = ?", self.id).
             where('score IS NULL').
             order('answers.created_at DESC')
   end

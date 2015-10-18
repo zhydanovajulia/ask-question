@@ -7,7 +7,7 @@ Tags =
     if $('body.questions.index').length
       @renderTagsCloud()
   binding: ->
-    $('.tags-cloud span').live 'click', ->
+    $('.tags-cloud span').on 'click', ->
       $('#tag').val $(this).text()
       $('.form_for_tag').submit()
 
@@ -32,8 +32,8 @@ Tags =
 $ ->
   Tags.init()
 
-  $('form.edit_question').live 'submit', ->
+  $('form.edit_question').on 'submit', ->
     Tags.updateHiddenInput()
 
-  $('form.new_question').live 'submit', ->
+  $('form.new_question').on 'submit', ->
     Tags.updateHiddenInput()
